@@ -1,0 +1,14 @@
+
+ext {
+  minSdkVersion = 22
+  compileSdkVersion = 34
+  targetSdkVersion = 34
+
+  // ✅ نسخه درست AGP
+  androidGradlePluginVersion = '8.2.2'
+
+  // ✅ نسخه درست google services (اگر لازم شد)
+  googleServicesVersion = '4.4.2'
+
+  kotlinVersion = '1.9.22'
+}

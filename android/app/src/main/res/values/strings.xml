@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IranRadio</string>
+    <string name="title_activity_main">IranRadio</string>
+    <string name="package_name">ir.iranradio.app</string>
+    <string name="custom_url_scheme">ir.iranradio.app</string>
+</resources>

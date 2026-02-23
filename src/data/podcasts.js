@@ -1,0 +1,51 @@
+export const podcastShows = [
+    {
+      id: "show_tech_talk",
+      title: "Tech Talk Daily",
+      publisher: "TT Network",
+      artworkUrl: "https://picsum.photos/seed/techtalk/300/300",
+      category: "Technology",
+      featured: true,
+    },
+    {
+      id: "show_startup_stories",
+      title: "Startup Stories",
+      publisher: "Founders FM",
+      artworkUrl: "https://picsum.photos/seed/startup/300/300",
+      category: "Business",
+      featured: true,
+    },
+    {
+      id: "show_true_crime",
+      title: "Midnight Files",
+      publisher: "Case Audio",
+      artworkUrl: "https://picsum.photos/seed/crime/300/300",
+      category: "True Crime",
+      featured: false,
+    },
+    {
+      id: "show_design_notes",
+      title: "Design Notes",
+      publisher: "DN Studio",
+      artworkUrl: "https://picsum.photos/seed/design/300/300",
+      category: "Design",
+      featured: false,
+    },
+    {
+      id: "show_health_simple",
+      title: "Health, Simplified",
+      publisher: "WellCo",
+      artworkUrl: "https://picsum.photos/seed/health/300/300",
+      category: "Health",
+      featured: false,
+    },
+    {
+      id: "show_practical_ai",
+      title: "Practical AI",
+      publisher: "AI Lab",
+      artworkUrl: "https://picsum.photos/seed/ai/300/300",
+      category: "Technology",
+      featured: true,
+    },
+  ];
+  
