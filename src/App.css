@@ -364,3 +364,80 @@ a strong {
   display:inline-block;
   transform: rotate(180deg);
 }
+.playlistCreateBox {
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.playlistCreateTitle {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: white;
+  opacity: 0.9;
+}
+
+.playlistRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.playlistRowMain {
+  flex: 1;
+  min-width: 0;
+  color: white;
+  text-decoration: none;
+}
+.mobileEpSave i.bi-trash {
+  font-size: 16px;
+}
+.playlistMenuWrap {
+  position: relative;
+}
+
+.playlistMenuBox {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 40;
+  width: 220px;
+  padding: 10px;
+  border-radius: 14px;
+  background: #141419;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.playlistMenuEmpty {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+
+.playlistMenuItem {
+  width: 100%;
+  text-align: left;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  color: white;
+}
+
+.playlistMenuItem:active {
+  transform: scale(0.99);
+}
+
+.playlistMenuItemTitle {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.playlistMenuItemSub {
+  margin-top: 4px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}

@@ -8,6 +8,7 @@ import { setQueue, setCurrentIndex } from "../slice/playerSlice";
 import { toggleListenLaterLocal } from "../slice/listenLaterSlice";
 import { stripHtml } from "../shared/mappers/iranradio";
 import MobileShell from "../components/mobile/MobileShell";
+import AddToPlaylist from "../components/playlist/AddToPlaylist";
 
 const EMPTY_EPISODES = [];
 
@@ -58,7 +59,6 @@ export default function ShowPage() {
 
       {!isLoading && !isError && show && (
         <>
-          {/* Hero Section */}
           <div className="mobileHero">
             <div className="mobileHeroImg">
               {show.cover ? (
@@ -95,7 +95,6 @@ export default function ShowPage() {
             </div>
           </div>
 
-          {/* Episodes */}
           <div className="mobileSectionTitle">
             Episodes
           </div>
@@ -108,8 +107,7 @@ export default function ShowPage() {
             <div className="d-flex flex-column gap-2">
               {episodes.map((ep, idx) => {
                 const id = String(ep.id);
-                const isSaved =
-                  listenLaterIds.includes(id);
+                const isSaved = listenLaterIds.includes(id);
 
                 return (
                   <div
@@ -137,20 +135,29 @@ export default function ShowPage() {
                       </div>
                     </button>
 
-                    <button
-                      type="button"
-                      className="mobileEpSave"
-                      onClick={() =>
-                        onToggleSave(id)
-                      }
-                      aria-pressed={isSaved}
-                    >
-                      {isSaved ? (
-                        <i className="bi bi-bookmark-fill" />
-                      ) : (
-                        <i className="bi bi-bookmark" />
-                      )}
-                    </button>
+                    <div className="d-flex align-items-center gap-2">
+                      <AddToPlaylist episode={ep} />
+
+                      <button
+                        type="button"
+                        className="mobileEpSave"
+                        onClick={() =>
+                          onToggleSave(id)
+                        }
+                        aria-pressed={isSaved}
+                        aria-label={
+                          isSaved
+                            ? "Remove from saved"
+                            : "Save episode"
+                        }
+                      >
+                        {isSaved ? (
+                          <i className="bi bi-bookmark-fill" />
+                        ) : (
+                          <i className="bi bi-bookmark" />
+                        )}
+                      </button>
+                    </div>
                   </div>
                 );
               })}

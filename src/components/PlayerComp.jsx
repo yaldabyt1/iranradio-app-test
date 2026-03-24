@@ -41,7 +41,7 @@ export default function PlayerComp() {
 
       const audioEl = playerRef.current?.audio?.current;
       if (audioEl && sec > 0) {
-        // اگر metadata هنوز نیومده بود، در onLoadedMetadata هم دوباره ست می‌کنیم
+        
         audioEl.currentTime = sec;
       }
     }
@@ -86,7 +86,7 @@ export default function PlayerComp() {
     const sec = await load(currentEpisode.id);
     const audioEl = playerRef.current?.audio?.current;
 
-    // اگر هنوز اولش بودیم، resume کن
+
     if (audioEl && sec > 0 && (audioEl.currentTime || 0) < 1) {
       audioEl.currentTime = sec;
     }
@@ -130,7 +130,7 @@ export default function PlayerComp() {
             dispatch(player.setIsPlaying(false));
             persistNow();
           }}
-          // برای دمو خوبه: هر 5 ثانیه ذخیره کن
+          
           onListen={persistNow}
           listenInterval={5000}
           customAdditionalControls={[

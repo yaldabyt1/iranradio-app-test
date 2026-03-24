@@ -7,6 +7,7 @@ import playerReducer from "../slice/playerSlice";
 import listenLaterReducer from "../slice/listenLaterSlice";
 import progressReducer from "../slice/progressSlice";
 import catalogReducer from "../slice/catalogSlice";
+import playlistsReducer from "../slice/playlistsSlice";
 
 import { iranradioApi } from "../services/iranradioApi";
 
@@ -19,8 +20,8 @@ export const store = configureStore({
     listenLater: listenLaterReducer,
     progress: progressReducer,
     catalog: catalogReducer,
+    playlists: playlistsReducer,
 
-    // ✅ RTK Query
     [iranradioApi.reducerPath]: iranradioApi.reducer,
   },
 

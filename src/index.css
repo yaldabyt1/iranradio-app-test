@@ -11,6 +11,17 @@
   font-weight: 800;
   letter-spacing: 0.2px;
 }
+.mobileEpBtn {
+  width: 100%;
+  border: none;
+  text-align: left;
+  color: white;
+  cursor: pointer;
+}
+
+.mobileEpBtn:active {
+  transform: scale(0.99);
+}
 
 /* کارت لیست موبایلی */
 .mobileCard {

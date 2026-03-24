@@ -32,9 +32,8 @@ export const iranradioApi = createApi({
   tagTypes: ["PlaylistCategory", "Podcast"],
 
   endpoints: (builder) => ({
-
     // =========================
-    // 1️⃣ Categories (playlist-category)
+    // 1) Categories (playlist-category)
     // =========================
     getPodcastCategories: builder.query({
       query: () => `/playlist-category?per_page=100`,
@@ -51,7 +50,7 @@ export const iranradioApi = createApi({
     }),
 
     // =========================
-    // 2️⃣ Category by slug
+    // 2) Category by slug
     // =========================
     getPodcastCategoryBySlug: builder.query({
       query: (slug) =>
@@ -63,7 +62,8 @@ export const iranradioApi = createApi({
     }),
 
     // =========================
-    // 3️⃣ Playlists by CategoryId
+    // 3) Playlists by CategoryId
+    // مهم: اینجا episodes هم می‌سازیم
     // =========================
     getPodcastsByCategoryId: builder.query({
       query: ({ categoryId, page = 1, perPage = 20 }) => {
@@ -81,7 +81,27 @@ export const iranradioApi = createApi({
       },
 
       transformResponse: (res) =>
-        Array.isArray(res) ? res.map(mapWpPlaylistToPodcast) : [],
+        Array.isArray(res)
+          ? res.map((post) => {
+              const podcast = mapWpPlaylistToPodcast(post);
+              const tracks = pickTracksFromPlaylistPost(post);
+
+              const episodes = tracks.map((track, index) =>
+                mapWpTrackToEpisode(track, {
+                  podcastId: podcast.id,
+                  podcastSlug: podcast.slug,
+                  podcastTitle: podcast.title,
+                  podcastCover: podcast.cover,
+                  index,
+                })
+              );
+
+              return {
+                ...podcast,
+                episodes,
+              };
+            })
+          : [],
 
       providesTags: (res) =>
         res
@@ -96,7 +116,7 @@ export const iranradioApi = createApi({
     }),
 
     // =========================
-    // 4️⃣ Podcast Detail by Slug
+    // 4) Podcast Detail by Slug
     // =========================
     getPodcastDetailBySlug: builder.query({
       query: (slug) =>
@@ -109,7 +129,6 @@ export const iranradioApi = createApi({
         if (!post) return null;
 
         const podcast = mapWpPlaylistToPodcast(post);
-
         const tracks = pickTracksFromPlaylistPost(post);
 
         const episodes = tracks.map((track, index) =>
